@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-cream: #F3EBDD;
+    --color-paper: #E8D8BC;
+    --color-kraft: #C69F78;
+    --color-dark: #292720;
+    --color-sage: #A6AD91;
+    --color-dusty-pink: #D9A5B0;
+    --color-muted-grey: #B8B2A6;
+  }
+
+  .dark {
+    --color-cream: #181715;
+    --color-paper: #25221F;
+    --color-kraft: #D4A373;
+    --color-dark: #F7F3EB;
+    --color-sage: #B4BDA0;
+    --color-dusty-pink: #E0ACB5;
+    --color-muted-grey: #8E887E;
+  }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #F3EBDD;
+    color: #292720;
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .dark body {
+    background-color: #181715;
+    color: #F7F3EB;
+  }
+}
+
+/* Custom Typography Utilities */
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+.font-typewriter {
+  font-family: 'Special Elite', monospace;
+}
+
+.font-sans {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Scrapbook Paper Texture & Dot Grid */
+.bg-notebook-dots {
+  background-image: radial-gradient(#C69F78 0.75px, transparent 0.75px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-notebook-dots {
+  background-image: radial-gradient(#8E7457 0.75px, transparent 0.75px);
+}
+
+.bg-ruled-lines {
+  background-image: linear-gradient(transparent 23px, rgba(184, 178, 166, 0.25) 24px);
+  background-size: 100% 24px;
+}
+
+.dark .bg-ruled-lines {
+  background-image: linear-gradient(transparent 23px, rgba(142, 136, 126, 0.2) 24px);
+}
+
+/* Paper Shadows */
+.shadow-paper {
+  box-shadow: 0 2px 10px -2px rgba(41, 39, 32, 0.08), 0 6px 20px -4px rgba(41, 39, 32, 0.06);
+}
+
+.dark .shadow-paper {
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-polaroid {
+  box-shadow: 0 4px 20px -2px rgba(41, 39, 32, 0.12), 0 2px 6px -1px rgba(41, 39, 32, 0.08);
+}
+
+.dark .shadow-polaroid {
+  box-shadow: 0 8px 24px -2px rgba(0, 0, 0, 0.55), 0 2px 8px -1px rgba(0, 0, 0, 0.35);
+}
+
+.shadow-lifted {
+  box-shadow: 0 10px 30px -5px rgba(41, 39, 32, 0.14), 0 4px 10px -2px rgba(41, 39, 32, 0.08);
+}
+
+.dark .shadow-lifted {
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.65), 0 4px 12px -2px rgba(0, 0, 0, 0.45);
+}
+
+/* Washi Tape styling */
+.washi-tape {
+  position: relative;
+  background-color: rgba(217, 165, 176, 0.75);
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.1), 0 1px 3px rgba(41, 39, 32, 0.12);
+  backdrop-filter: blur(1px);
+}
+
+.dark .washi-tape {
+  box-shadow: inset 0 0 1px rgba(255,255,255,0.15), 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.washi-tape-sage {
+  background-color: rgba(166, 173, 145, 0.75);
+}
+
+.washi-tape-kraft {
+  background-color: rgba(198, 159, 120, 0.75);
+}
+
+.washi-tape-pink {
+  background-color: rgba(217, 165, 176, 0.75);
+}
+
+/* Torn paper edge effect */
+.torn-edge-bottom {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - 8px),
+    98% 100%,
+    95% calc(100% - 6px),
+    92% 100%,
+    88% calc(100% - 7px),
+    85% 100%,
+    80% calc(100% - 6px),
+    76% 100%,
+    72% calc(100% - 8px),
+    68% 100%,
+    63% calc(100% - 6px),
+    59% 100%,
+    54% calc(100% - 8px),
+    50% 100%,
+    45% calc(100% - 6px),
+    40% 100%,
+    35% calc(100% - 7px),
+    31% 100%,
+    26% calc(100% - 7px),
+    22% 100%,
+    17% calc(100% - 6px),
+    12% 100%,
+    8% calc(100% - 7px),
+    4% 100%,
+    0% calc(100% - 8px)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
